@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans.xsd 
+  http://www.springframework.org/schema/context/ 
+  http://www.springframework.org/schema/context/spring-context.xsd">
+  <bean id="emp1" class="com.chainsys.projecta.beans.Employee" /><!--In here we change the id emp to emp1 so error in lazyinit -->
+  <alias name="emp1" alias="empalias"/>
+  <bean id="emp2" class="com.chainsys.projecta.beans.Employee">
+  <property name="id" value="2"></property>
+  		<property name="name" value="keerthu"></property>
+  </bean>
+  <bean id="emp" class="com.chainsys.projecta.beans.Customer" lazy-init="true"/><!--In here we change the id c2 to emp so error in lazyinit -->
+  <bean id="act" class="com.chainsys.projecta.beans.Actor" scope="prototype"/>
+   <bean id="film" class="com.chainsys.projecta.beans.Movie">
+   		<constructor-arg  type="java.lang.String" value="Vikram" />
+   		<constructor-arg  type="java.lang.String" value="loki" />
+   </bean>
+   <bean id="sb1" class="com.chainsys.projecta.beans.ScoreBoard" factory-method="createObject" scope="prototype"/>
+   <bean id="sb2" class="com.chainsys.projecta.beans.ScoreBoard" factory-method="createObject" scope="prototype">
+   <constructor-arg  type="int" value="360" />
+   </bean>
+   <bean id="Calendar" class="com.chainsys.projecta.beans.Calendar" factory-method="createCalendar"
+   factory-bean="CFactory" />
+   <bean id="CFactory" class="com.chainsys.projecta.beans.CalendarFactory" />
+   <bean id="appointments" class="com.chainsys.projecta.beans.Appointments" factory-method="createAppointment"
+   factory-bean="CFactory" />
+  </beans>
