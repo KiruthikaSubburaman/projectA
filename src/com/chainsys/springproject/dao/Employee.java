@@ -2,21 +2,16 @@ package com.chainsys.springproject.dao;
 
 import java.util.Date;
 
-public class Employee {
+public class Employee 
+{
+	private int emp_id;
 	private String first_name;
 	private String last_name;
 	private String email;
-	private String phone_number;
-	public String getPhone_number() {
-		return phone_number;
-	}
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
-	}
 	private Date hire_date;
 	private String job_id;
-	private float salary; 
-	private int emp_id;
+	private float salary;
+	
 	public int getEmp_id() {
 		return emp_id;
 	}
@@ -58,7 +53,5 @@ public class Employee {
 	}
 	public void setSalary(float salary) {
 		this.salary = salary;
-	}
-
-
+	}	        
 }

@@ -123,18 +123,20 @@ public class TestClassPathXml {
     	ann=null;
     	ac1.close();
     }
-	public static void testAutowire() {
+	public static void testAutoWire() {
         ConfigurableApplicationContext ac1 = new ClassPathXmlApplicationContext("Autowire.xml");
-        Car car=ac1.getBean(Car.class);
+        Car car= ac1.getBean("car",Car.class);
+        car.start();
         car.move();
         car = null;
         ac1.close();
     }
-	public static void testAutowireQualifier() {
-		ConfigurableApplicationContext ac1 = new ClassPathXmlApplicationContext("Autowire.xml"); 
-		CarServices cs = ac1.getBean(CarServices.class); 
-		cs.startTrip();
-	}
+     
+    public static void testAutoWireQualifier() {
+        ConfigurableApplicationContext ac1 = new ClassPathXmlApplicationContext("Autowire.xml");
+        CarServices cs=ac1.getBean(CarServices.class);
+        cs.startTrip();
+    }
 }
 
 
